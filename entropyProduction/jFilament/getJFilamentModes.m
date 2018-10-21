@@ -19,6 +19,12 @@
 % aa : array
 %     Mx(nmax) array of the mode coefficients for every filament at every time point,
 %     each time point contained in a single row
+% aaEach Filament : cell array
+%     cell array with mode amplitudes for each individual filament in each element
+%     of the cell array
+% avgL : array
+%     array where nth element is the average length measured over time of the nth
+%     filament.
 %
 % Created by Daniel Seara, 05/10/2017
 function [aaAll, aaEachFilament, avgL] = getJFilamentModes(filament, nmax, px2um)

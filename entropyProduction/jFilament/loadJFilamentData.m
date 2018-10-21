@@ -3,15 +3,18 @@
 % This function reads in the data given by JFilament
 % Load the txt file that JFilament spits out as a table with NaNs
 % replacing the useless elements.
-% 
-% INPUTS  
-%			snakes: matlab table of imported JFilament .txt output file
 %
-% OUTPUTS 
-%		  filament: a cell array, where each cell element is a Nx5 array
-%					where N=(number of segments of filament)x(number of frames)
-%					with columns:
-%					frame | segment # | x | y | all zeros (?)
+% Parameters
+% ----------
+% snakes: matlab table
+%     imported JFilament .txt output file
+%
+% Returns
+% -------
+% filament: cell array
+%     where each cell element is a Nx5 array where
+%     N=(number of segments of filament)x(number of frames)
+%     with columns: frame | segment # | x | y | all zeros (open contour)
 %
 % Created by Daniel Seara, 05/10/2017
 function filament = loadJFilamentData(snakes)

@@ -1,4 +1,4 @@
-% function aa = getJFilamentModes(filament,nmax,bcs,savestuff)
+% function [aaAll, avgL] = getCytosimModes(simData, nmax)
 % This function rotates the filaments so that they lie horizontally,
 % with the first frame end points of the filament determining what is
 % 'horizontal'. Get tangent angle data along the arc length of the filament.
@@ -11,20 +11,20 @@
 %     x-position, y-position, FilamentID, FrameNumber
 % nmax : int
 %     Maximum number of modes to calculate for the filaments
-% bcs : string
-%     String of boundary conditions of the rods (use 'free')
 %
 % Returns
 % -------
-% aa : array
+% aaAll : array
 %     Mx(nmax) array of the mode coefficients for every filament at every time point,
 %     each time point contained in a single row
+% avgL : array
+%     array where nth element is the average length measured over time of the nth
+%     filament.
 %
-% Created to read cytosim data found in the following location:
-% llmStorage203/Vikrant/DannyData
+% Created to read cytosim data
 %
 % Created by Daniel Seara, 06/07/2018
-function [aaAll, avgL] = getModes(simData, nmax, bcs)
+function [aaAll, avgL] = getCytosimModes(simData, nmax)
     fids = unique(simData(:,3));
     frames = unique(simData(:,4));
     aaAll = zeros(numel(fids) .* numel(frames), nmax);
