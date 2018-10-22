@@ -1,6 +1,7 @@
 % function saveCytosimOutput(simPath, nModes, savefolder)
 % Function to read output from JFilament and save filament data, filament lengths,
-% and bending mode amplitudes in savefolder as csv files.
+% and bending mode amplitudes in savefolder as csv files. Make sure to run this
+% after running cytosimDataExtractor.m, found in this same folder.
 %
 % Parameters
 % ----------
@@ -40,7 +41,7 @@ function saveCytosimOutput(simPath, nModes, savefolder)
 
     tic
     disp('Calculating modes...')
-    [aaAll, avgL] = getModes(simDataInside, 6, 'free');
+    [aaAll, avgL] = getModes(simDataInside, nModes, 'free');
     disp('done')
     toc
 
