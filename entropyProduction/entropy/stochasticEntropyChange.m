@@ -18,7 +18,15 @@
 % Returns
 % -------
 % deltaS : float
-%   total entropy production
+%     total entropy production
+% edges : cell array
+%     cell array with position of edges of n-dimensional histogram that is created to
+%     discretize space. edges{n} gives edges in n-th dimension.
+% bincenters : cell array
+%     cell array with positions of centers of bins. bincenters{n} gives bin centers in n-th dimension
+% vss : array
+%     numerical array with velocity vectors over discretized space. First D dimensions index which
+%     bin the velocity belongs to, the D+1 dimension contains all the vector components at that point
 %
 function [deltaS, edges, bincenters, vss] = stochasticEntropyChange(tseries, dt, dbin, d)
     [T,D] = size(tseries);
